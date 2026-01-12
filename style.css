@@ -1,0 +1,455 @@
+:root {
+    --bg-color: #050505;
+    /* Deep black as per mockup */
+    --border-green: #39FF14;
+    --text-white: #FFFFFF;
+    --text-orange: #FF4500;
+    --font-heading: 'Orbitron', sans-serif;
+    /* Tech headers */
+    --font-body: 'Rajdhani', sans-serif;
+    /* Clean tech body */
+    --font-mono: 'Share Tech Mono', monospace;
+    /* Terminal text */
+
+    --glow-green: 0 0 8px rgba(57, 255, 20, 0.4);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-white);
+    font-family: var(--font-body);
+    padding: 2rem 4rem;
+    height: 100vh;
+    overflow-x: hidden;
+    /* Optional: Subtle CRT scanline background texture could be added here */
+}
+
+/* Nav */
+.cyber-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    border-bottom: none;
+    /* Mockup has no line here, or it's subtle */
+}
+
+.nav-brand {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.brand-sub {
+    color: #888;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-links a:hover,
+.nav-links a[href="#sonic-works"] {
+    /* Active state sim */
+    color: var(--text-white);
+}
+
+.nav-links a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--text-white);
+}
+
+/* Main Layout */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Common Section Styles */
+section {
+    position: relative;
+}
+
+.section-header {
+    color: var(--border-green);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Hero Box */
+.hero-box {
+    border: 2px solid var(--border-green);
+    box-shadow: var(--glow-green);
+    height: 300px;
+    /* Approx height from mockup */
+    position: relative;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-title {
+    position: absolute;
+    top: 1rem;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    z-index: 2;
+    text-shadow: 0 0 5px black;
+}
+
+.waveform-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.waveform-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Cover to fill box */
+    opacity: 0.9;
+    mix-blend-mode: screen;
+    /* Blends nicely with black bg */
+}
+
+/* HUD Decorative Numbers */
+.hud-text {
+    position: absolute;
+    font-family: var(--font-mono);
+    color: #444;
+    /* Dark grey for background UI elements */
+    font-size: 0.8rem;
+    z-index: 1;
+}
+
+.top-left {
+    top: 20%;
+    left: 5%;
+}
+
+.bottom-left {
+    bottom: 10%;
+    left: 5%;
+}
+
+/* Middle Grid */
+.mid-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* Sonic Collaborations */
+.sonic-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.sonic-visual-box {
+    border: 1px solid var(--border-green);
+    /* Mockup shows border around image too? Or just the section? Mockup has border around the image container */
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+.sonic-visual-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sonic-overlay-text {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    color: var(--text-orange);
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    text-shadow: 0 0 5px black;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/* About Me */
+.about-section {
+    display: flex;
+    flex-direction: column;
+    border-left: 2px solid var(--border-green);
+    /* The big green line separator */
+    padding-left: 1.5rem;
+}
+
+/* Wait, looking closer at mockup, About Me is ALSO just a box with a green border on the LEFT? 
+   No, the mockup shows a GREEN BORDER BOX surrounding the text, 
+   OR it's a vertical green line acting as the "Left Border" of the About section.
+   Actually, looking at the crop, there is a Green Vertical Line to the left of "ABOUT ME". 
+   Let's stick to that vertical line style.
+*/
+
+.terminal-text {
+    font-family: var(--font-mono);
+    color: #aaa;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-top: 1rem;
+}
+
+.terminal-text p {
+    margin-bottom: 0.5rem;
+}
+
+/* Bottom Grid */
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    /* AI archives is wider */
+    gap: 2rem;
+}
+
+/* AI Archives Grid */
+.ai-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.ai-thumb {
+    position: relative;
+    aspect-ratio: 16/9;
+    border: 1px solid #333;
+    transition: border-color 0.3s;
+}
+
+.ai-thumb:hover {
+    border-color: var(--border-green);
+}
+
+.ai-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.ai-thumb:hover img {
+    opacity: 1;
+}
+
+.ai-label {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    font-size: 0.6rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2px 4px;
+    font-family: var(--font-mono);
+}
+
+/* System Upgrades */
+.updates-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 15px;
+    height: 100%;
+    /* Fill height */
+}
+
+.update-card {
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    min-height: 80px;
+}
+
+.white-bg {
+    background: white;
+    color: black;
+    border: 1px solid var(--border-green);
+    /* Mockup shows green container around it? Actually the container around the group is implied */
+}
+
+/* Wait, in mockup "System Upgrades" has a green vertical line to its left too. */
+.updates-section {
+    border-left: 2px solid var(--border-green);
+    padding-left: 1.5rem;
+}
+
+.outline {
+    border: 1px solid var(--border-green);
+    /* Thin green border */
+    background: transparent;
+}
+
+.empty {
+    border-color: #333;
+    /* Darker/Empty */
+}
+
+.google-text {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.ai-orange {
+    color: var(--text-orange);
+    /* Or Google styled colors */
+}
+
+.essentials-text {
+    display: block;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.orange-text {
+    color: var(--text-orange);
+    font-weight: 700;
+    font-size: 0.9rem;
+    line-height: 1.2;
+}
+
+
+/* Media Queries */
+@media (max-width: 900px) {
+    body {
+        padding: 1rem 1.5rem;
+        height: auto;
+        /* Allow scroll on mobile */
+    }
+
+    .cyber-nav {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .mid-grid,
+    .bottom-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    /* About Section Mobile Adjustments */
+    .about-section {
+        border-left: none;
+        border-top: 2px solid var(--border-green);
+        padding-left: 0;
+        padding-top: 1.5rem;
+        margin-top: 0.5rem;
+        /* Add some space */
+    }
+
+    /* System Upgrades Mobile Adjustments */
+    .updates-section {
+        border-left: none;
+        border-top: 2px solid var(--border-green);
+        padding-left: 0;
+        padding-top: 1.5rem;
+        margin-top: 0;
+    }
+
+    .updates-grid {
+        grid-template-columns: 1fr 1fr;
+        /* Keep 2 cols for certs if they fit, or go 1fr */
+        gap: 10px;
+    }
+
+    /* Hero Adjustments */
+    .hero-box {
+        height: 250px;
+    }
+
+    .hero-title {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .hud-text {
+        font-size: 0.6rem;
+    }
+
+    /* AI Grid Adjustments */
+    .ai-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 cols on mobile seems better than 1 big stack */
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        gap: 1rem;
+        flex-direction: column;
+    }
+
+    .hero-title {
+        font-size: 0.9rem;
+    }
+
+    .ai-grid {
+        grid-template-columns: 1fr;
+        /* 1 col for very small screens */
+    }
+
+    .updates-grid {
+        grid-template-columns: 1fr;
+        /* Stack certs on narrow screens */
+    }
+}
